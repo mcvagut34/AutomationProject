@@ -5,8 +5,11 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class FirefoxDriverCreator extends WebDriverCreator {
     @Override
-    public WebDriver createWebDriver() {
-        System.setProperty("webdriver.gecko.driver", "resources/geckodriver");
+    public WebDriver createWebDriver(String os) {
+        String driverPath = "resources/webdrivers/" + os + "/geckodriver";
+        if (os.equals("windows")) driverPath += ".exe";
+
+        System.setProperty("webdriver.gecko.driver", driverPath);
         return new FirefoxDriver();
     }
 }

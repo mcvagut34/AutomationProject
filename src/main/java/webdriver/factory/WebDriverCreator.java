@@ -6,5 +6,5 @@ import java.net.MalformedURLException;
 
 public abstract class WebDriverCreator {
 
-    public abstract WebDriver createWebDriver() throws MalformedURLException;
+    public abstract WebDriver createWebDriver(String os) throws MalformedURLException;
 }

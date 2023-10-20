@@ -1,13 +1,14 @@
 package base;
 
+import com.aventstack.extentreports.Status;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Parameters;
+import webdriver.factory.WebDriverFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -15,8 +16,6 @@ import java.util.concurrent.TimeUnit;
 public class BaseTest {
 
     protected WebDriver driver;
-    private String url = "https://www.demoblaze.com/";
-    private String browser = "chrome";
     private static final Logger log = LogManager.getLogger(BaseTest.class);
 
 //    @BeforeSuite
@@ -25,20 +24,10 @@ public class BaseTest {
 //    }
 
     @BeforeMethod
-    public void setup(ITestResult iTestResult) throws Exception {
+    @Parameters({"url", "browser", "os"})
+    public void setup(ITestResult iTestResult, String url, String browser, String os) throws Exception {
         //ReportManager.getInstance().startTest(iTestResult.getMethod().getDescription());
-        switch (browser) {
-            case "chrome":
-                System.setProperty("webdriver.chrome.driver", "resources/chromedriver.exe");
-                driver = new ChromeDriver();
-                break;
-            case "firefox":
-                System.setProperty("webdriver.gecko.driver", "resources/geckodriver.exe");
-                driver = new FirefoxDriver();
-                break;
-            default:
-                throw new Exception(browser + " no soportado");
-        }
+        driver = WebDriverFactory.getDriver(browser, os);
         //driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
         driver.get(url);
