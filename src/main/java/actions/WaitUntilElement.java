@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class EsperarElemento {
+public class WaitUntilElement {
 
         public static boolean isPresent(WebDriver webDriver, By locator, int timeoutInSeconds) {
             try {
@@ -39,6 +39,17 @@ public class EsperarElemento {
                 return false;
             }
         }
+
+    public static boolean hasNInstances(WebDriver webDriver, By locator, int instances, int timeoutInSeconds) {
+        try {
+            WebDriverWait wait = new WebDriverWait(webDriver, timeoutInSeconds);
+            wait.until(ExpectedConditions.numberOfElementsToBe(locator, instances));
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
 
 
