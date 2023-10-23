@@ -2,6 +2,8 @@ package tasks.home;
 
 import actions.Click;
 import actions.WaitUntilElement;
+import com.aventstack.extentreports.Status;
+import helpers.ScreenShotHelper;
 import org.openqa.selenium.WebDriver;
 import ui.HomeUI;
 
@@ -12,7 +14,10 @@ public class FilterGridByLaptop {
 
         Click.on(driver, HomeUI.laptopFilterBtn);
 
+
         // Esperar a que el grid filtre de 9 a 6 elementos (solo laptops)
         WaitUntilElement.hasNInstances(driver, HomeUI.productTitle, 6, 5);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Filtrado por Laptop");
+
     }
 }

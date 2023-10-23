@@ -3,6 +3,8 @@ package tasks.order;
 import actions.Click;
 import actions.Enter;
 import actions.WaitUntilElement;
+import com.aventstack.extentreports.Status;
+import helpers.ScreenShotHelper;
 import org.openqa.selenium.WebDriver;
 import ui.OrderFormUI;
 
@@ -20,5 +22,7 @@ public class FillOrderForm {
         Enter.text(driver, OrderFormUI.yearField, year);
 
         Click.on(driver, OrderFormUI.purchaseBtn);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Formulario llenado y orden realizada");
+
     }
 }

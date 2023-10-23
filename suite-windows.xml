@@ -3,12 +3,12 @@
 <suite name="Full Windows Regression" verbose="1">
     <parameter name="url" value="https://www.demoblaze.com/" />
     <parameter name="os" value="windows" />
-    <test name="All Test Firefox">
-        <parameter name="browser" value="firefox" />
-        <packages>
-            <package name="purchase" />
-        </packages>
-    </test>
+<!--    <test name="All Test Firefox">-->
+<!--        <parameter name="browser" value="firefox" />-->
+<!--        <packages>-->
+<!--            <package name="purchase" />-->
+<!--        </packages>-->
+<!--    </test>-->
     <test name="All Test Chrome" >
         <parameter name="browser" value="chrome" />
         <packages>

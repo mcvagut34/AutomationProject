@@ -2,8 +2,11 @@ package tasks.order;
 
 import actions.GetText;
 import actions.WaitUntilElement;
+import org.apache.logging.log4j.LogManager;
 import org.openqa.selenium.WebDriver;
 import ui.OrderFormUI;
+import org.apache.logging.log4j.Logger;
+
 
 public class IsPurchaseConfirmed {
 
@@ -13,7 +16,13 @@ public class IsPurchaseConfirmed {
 
         // Comparar el header con el texto de compra exitosa
         String header = GetText.from(driver, OrderFormUI.resultModalHeader);
-        // TODO: Colocar acá un info log con el valor de header
+
+        // DONE: Colocar acá un info log con el valor de header
+        Logger logger = LogManager.getLogger(IsPurchaseConfirmed.class);
+        logger.info("Valor del header: " + header);
+
         return header.equals("Thank you for your purchase!");
+
+
     }
 }
