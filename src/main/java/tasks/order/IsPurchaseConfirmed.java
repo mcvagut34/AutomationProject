@@ -17,9 +17,8 @@ public class IsPurchaseConfirmed {
         // Comparar el header con el texto de compra exitosa
         String header = GetText.from(driver, OrderFormUI.resultModalHeader);
 
-        // DONE: Colocar acá un info log con el valor de header
         Logger logger = LogManager.getLogger(IsPurchaseConfirmed.class);
-        logger.info("Valor del header: " + header);
+        logger.info("Header presente en confirmación: " + header);
 
         return header.equals("Thank you for your purchase!");
 

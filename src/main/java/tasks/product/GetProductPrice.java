@@ -12,8 +12,6 @@ public class GetProductPrice {
             throw new Exception("Precio de producto no encontrado");
 
         String rawPrice = GetText.from(driver, ProductUI.productPrice);
-
-        // TODO: Usar RegEx para obtener precio
         return rawPrice.split(" ")[0].replace("$", "");
     }
 }
