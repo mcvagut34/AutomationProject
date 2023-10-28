@@ -1,7 +1,9 @@
 package account;
 
 import base.BaseTest;
+import com.aventstack.extentreports.Status;
 import helpers.JsonTestDataHelper;
+import helpers.ReportManager;
 import models.LoginModel;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
@@ -19,6 +21,7 @@ public class LoginTest extends BaseTest {
     @Test(description = "Validar inicio de sesión", dataProvider = "loginCorrectProvider")
     public void userLogin(LoginModel loginData) throws Exception {
 
+        ReportManager.getInstance().getTest().log(Status.INFO, "Login test data: " + loginData.toString());
         ShowLoginForm.perform(driver);
         FillLoginForm.perform(driver, loginData.getUser(), loginData.getPass());
 
