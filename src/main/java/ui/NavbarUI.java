@@ -10,4 +10,6 @@ public class NavbarUI {
         public static final By homeBtn = By.id("home");
         public static final By contactBtn = By.id("contact");
         public static final By aboutBtn = By.id("about");
+
+        public static final By usernameText = By.id("nameofuser");
 }

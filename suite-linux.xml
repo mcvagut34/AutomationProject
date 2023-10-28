@@ -6,12 +6,14 @@
     <test name="All Test Firefox">
         <parameter name="browser" value="firefox" />
         <packages>
-            <package name="purchase" />
+            <package name="account" />
+<!--            <package name="purchase" />-->
         </packages>
     </test>
 <!--    <test name="All Test Chrome" >-->
 <!--        <parameter name="browser" value="chrome" />-->
 <!--        <packages>-->
+        <!--    <package name="account" /> -->
 <!--            <package name="purchase" />-->
 <!--        </packages>-->
 <!--    </test>-->
