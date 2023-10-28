@@ -18,6 +18,6 @@ public class FillLoginForm {
         Enter.text(driver, LoginFormUI.passwordField, password);
 
         Click.on(driver, LoginFormUI.loginBtn);
-        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Formulario llenado y sesión iniciada");
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Formulario llenado y enviado");
     }
 }

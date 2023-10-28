@@ -2,6 +2,8 @@ package tasks.login;
 
 import actions.GetText;
 import actions.WaitUntilElement;
+import com.aventstack.extentreports.Status;
+import helpers.ScreenShotHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +20,7 @@ public class IsUserLoggedIn {
 
         Logger logger = LogManager.getLogger(IsUserLoggedIn.class);
         logger.info("Texto obtenido desde welcomeText: " + usernameFromText);
+        ScreenShotHelper.takeScreenShotAndAdToHTMLReport(driver, Status.INFO, "Navbar con usuario actual");
 
         return usernameFromText.equals(username);
     }
