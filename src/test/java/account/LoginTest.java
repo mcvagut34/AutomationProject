@@ -21,7 +21,7 @@ public class LoginTest extends BaseTest {
 
     public static String loginTestDataPath = "resources/testdata/login/";
 
-//    @Test(description = "Validar inicio de sesión con credenciales correctas", dataProvider = "loginCorrectProvider")
+    @Test(description = "Validar inicio de sesión con credenciales correctas", dataProvider = "loginCorrectProvider")
     public void testLoginCorrect(LoginModel loginData) throws Exception {
 
         ReportManager.getInstance().getTest().log(Status.INFO, "Login test data: " + loginData.toString());
